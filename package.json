@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "author": "KUZU Devs",
+  "name": "kuzu-remix",
+  "description": "A fullstack, realtime CMS for radio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "0.13",
+    "graphql-yoga": "^1.16.7",
+    "prisma-client-lib": "^1.19.3"
+  },
+  "contributors": [
+    "Dave Sims",
+    "Patrick Carr",
+    "Dan Minshew <danminshew@gmail.com> (twitter.com/newswim)"
+  ]
+}
