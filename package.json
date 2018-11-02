@@ -1,23 +1,47 @@
 {
   "private": true,
-  "author": "KUZU Devs",
   "name": "kuzu-remix",
-  "description": "A fullstack, realtime CMS for radio",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "license": "MIT",
-  "dependencies": {
-    "graphql": "0.13",
-    "graphql-yoga": "^1.16.7",
-    "prisma-client-lib": "^1.19.3"
-  },
+  "author": "KUZU Devs",
   "contributors": [
     "Dave Sims",
     "Patrick Carr",
     "Dan Minshew <danminshew@gmail.com> (twitter.com/newswim)"
-  ]
+  ],
+  "description": "A fullstack, realtime CMS for radio",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --forceExit --detectOpenHandles",
+    "prisma": "prisma",
+    "lint": "tslint"
+  },
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.3",
+    "prisma-client-lib": "^1.19.3"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.0.3",
+    "@types/jest": "^23.3.9",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.6"
+  },
+  "jest": {
+    "testURL": "http://localhost/",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".test.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    }
+  }
 }

@@ -11,6 +11,7 @@
 
 ### Setup
 
+- You will probably need Node 10 or 11 (haven't tested with older versionss)
 - Install Docker (if not already installed) [link](https://www.docker.com/products/docker-desktop)
 - Turn on Docker Daemon (eg. Docker for Mac)
 - From this directory, run `docker-compose up -d`
@@ -21,7 +22,7 @@ brew install prisma
 ---- or ----
 npm install -g prisma
 ```
-- From this directory, run `prisma deploy`
+- From this directory, run `prisma deploy`, this spins up the Prisma server and runs any migrations resulting from changes to the data model.
 
 # FAQ
 
@@ -29,3 +30,7 @@ npm install -g prisma
 
 An initialized prisma configuration, and client library.
 For more, see [Prisma: Setting Up A New Database](https://www.prisma.io/docs/get-started/01-setting-up-prisma-new-database-a002/)
+
+# TODO's
+
+- https://trello.com/b/E8K5nMTq/kuzu

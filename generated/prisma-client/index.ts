@@ -150,6 +150,8 @@ export type PostOrderByInput =
   | "title_DESC"
   | "published_ASC"
   | "published_DESC"
+  | "content_ASC"
+  | "content_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -205,6 +207,20 @@ export interface PostWhereInput {
   published?: Boolean;
   published_not?: Boolean;
   author?: UserWhereInput;
+  content?: String;
+  content_not?: String;
+  content_in?: String[] | String;
+  content_not_in?: String[] | String;
+  content_lt?: String;
+  content_lte?: String;
+  content_gt?: String;
+  content_gte?: String;
+  content_contains?: String;
+  content_not_contains?: String;
+  content_starts_with?: String;
+  content_not_starts_with?: String;
+  content_ends_with?: String;
+  content_not_ends_with?: String;
   AND?: PostWhereInput[] | PostWhereInput;
   OR?: PostWhereInput[] | PostWhereInput;
   NOT?: PostWhereInput[] | PostWhereInput;
@@ -270,6 +286,7 @@ export interface PostCreateInput {
   title: String;
   published?: Boolean;
   author?: UserCreateOneWithoutPostsInput;
+  content: String;
 }
 
 export interface UserCreateOneWithoutPostsInput {
@@ -286,6 +303,7 @@ export interface PostUpdateInput {
   title?: String;
   published?: Boolean;
   author?: UserUpdateOneWithoutPostsInput;
+  content?: String;
 }
 
 export interface UserUpdateOneWithoutPostsInput {
@@ -321,6 +339,7 @@ export interface PostCreateManyWithoutAuthorInput {
 export interface PostCreateWithoutAuthorInput {
   title: String;
   published?: Boolean;
+  content: String;
 }
 
 export interface UserUpdateInput {
@@ -350,6 +369,7 @@ export interface PostUpdateWithWhereUniqueWithoutAuthorInput {
 export interface PostUpdateWithoutAuthorDataInput {
   title?: String;
   published?: Boolean;
+  content?: String;
 }
 
 export interface PostUpsertWithWhereUniqueWithoutAuthorInput {
@@ -388,6 +408,7 @@ export interface PostNode {
   id: ID_Output;
   title: String;
   published: Boolean;
+  content: String;
 }
 
 export interface Post extends Promise<PostNode>, Fragmentable {
@@ -395,6 +416,7 @@ export interface Post extends Promise<PostNode>, Fragmentable {
   title: () => Promise<String>;
   published: () => Promise<Boolean>;
   author: <T = User>() => T;
+  content: () => Promise<String>;
 }
 
 export interface PostSubscription
@@ -404,6 +426,7 @@ export interface PostSubscription
   title: () => Promise<AsyncIterator<String>>;
   published: () => Promise<AsyncIterator<Boolean>>;
   author: <T = UserSubscription>() => T;
+  content: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserNode {
@@ -612,6 +635,7 @@ export interface PostPreviousValuesNode {
   id: ID_Output;
   title: String;
   published: Boolean;
+  content: String;
 }
 
 export interface PostPreviousValues
@@ -620,6 +644,7 @@ export interface PostPreviousValues
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
   published: () => Promise<Boolean>;
+  content: () => Promise<String>;
 }
 
 export interface PostPreviousValuesSubscription
@@ -628,6 +653,7 @@ export interface PostPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
   published: () => Promise<AsyncIterator<Boolean>>;
+  content: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserSubscriptionPayloadNode {
@@ -702,4 +728,8 @@ export type Long = string;
  * Type Defs
  */
 
-export const prisma: Prisma;
+export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
+  typeDefs,
+  endpoint: `http://localhost:4466`
+});
+export const prisma = new Prisma();

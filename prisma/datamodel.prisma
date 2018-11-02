@@ -2,12 +2,13 @@ type User {
   id: ID! @unique
   email: String @unique
   name: String!
-  posts: [Post!]!
+  posts: [Post!]! @relation(name: "PostsByUser")
 }
 
 type Post {
   id: ID! @unique
   title: String!
   published: Boolean! @default(value: "false")
-  author: User
+  author: User @relation(name: "PostsByUser" onDelete: CASCADE)
+  content: String
 }

@@ -1,5 +1,4 @@
-module.exports = {
-        typeDefs: /* GraphQL */ `type AggregatePost {
+export const typeDefs = /* GraphQL */ `type AggregatePost {
   count: Int!
 }
 
@@ -50,6 +49,7 @@ type Post {
   title: String!
   published: Boolean!
   author: User
+  content: String!
 }
 
 type PostConnection {
@@ -62,6 +62,7 @@ input PostCreateInput {
   title: String!
   published: Boolean
   author: UserCreateOneWithoutPostsInput
+  content: String!
 }
 
 input PostCreateManyWithoutAuthorInput {
@@ -72,6 +73,7 @@ input PostCreateManyWithoutAuthorInput {
 input PostCreateWithoutAuthorInput {
   title: String!
   published: Boolean
+  content: String!
 }
 
 type PostEdge {
@@ -86,6 +88,8 @@ enum PostOrderByInput {
   title_DESC
   published_ASC
   published_DESC
+  content_ASC
+  content_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -96,6 +100,7 @@ type PostPreviousValues {
   id: ID!
   title: String!
   published: Boolean!
+  content: String!
 }
 
 type PostSubscriptionPayload {
@@ -120,6 +125,7 @@ input PostUpdateInput {
   title: String
   published: Boolean
   author: UserUpdateOneWithoutPostsInput
+  content: String
 }
 
 input PostUpdateManyWithoutAuthorInput {
@@ -134,6 +140,7 @@ input PostUpdateManyWithoutAuthorInput {
 input PostUpdateWithoutAuthorDataInput {
   title: String
   published: Boolean
+  content: String
 }
 
 input PostUpdateWithWhereUniqueWithoutAuthorInput {
@@ -179,6 +186,20 @@ input PostWhereInput {
   published: Boolean
   published_not: Boolean
   author: UserWhereInput
+  content: String
+  content_not: String
+  content_in: [String!]
+  content_not_in: [String!]
+  content_lt: String
+  content_lte: String
+  content_gt: String
+  content_gte: String
+  content_contains: String
+  content_not_contains: String
+  content_starts_with: String
+  content_not_starts_with: String
+  content_ends_with: String
+  content_not_ends_with: String
   AND: [PostWhereInput!]
   OR: [PostWhereInput!]
   NOT: [PostWhereInput!]
@@ -355,5 +376,3 @@ input UserWhereUniqueInput {
   email: String
 }
 `
-      }
-    
