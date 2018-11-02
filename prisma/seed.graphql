@@ -2,7 +2,7 @@ mutation {
   createUser(
     data: {
       name: "Alice"
-      email: "alice@test.com"
+      email: "alice@prisma.io"
       posts: {
         create: {
           isPublished: true

@@ -1,16 +1,14 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {
-        "semicolon": false
-    },
-    "rulesDirectory": [],
-    "linterOptions": {
-        "exclude": [
-            "**/generated/**"
-        ]
-    }
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "linterOptions": {
+      "exclude": [
+          "./generated/prisma-client/**"
+      ]
+  },
+  "jsRules": {},
+  "rules": {
+    "semicolon": false,
+    "quotemark": [true, "single"]
+  }
 }
