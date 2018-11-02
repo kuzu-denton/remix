@@ -1,8 +1,17 @@
+# KUZU Remix
+
+> Sorry for the pun.
+
+### Statuses
+
+[![CircleCI](https://circleci.com/gh/kuzu-denton/remix/tree/master.svg?style=svg)](https://circleci.com/gh/kuzu-denton/remix/tree/master)
+
+--- 
+
 # Proposed architecture
 
 ```
-- React / RN
-- (consider Elixir ?)
+- React/-Native
 - Prisma
 - Postgres
 - Docker/-Machine
