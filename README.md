@@ -34,3 +34,19 @@ For more, see [Prisma: Setting Up A New Database](https://www.prisma.io/docs/get
 # TODO's
 
 - https://trello.com/b/E8K5nMTq/kuzu
+
+# Testing CircleCI Locally
+
+- Get a user token from CircleCI
+- Find the commit hash you want to build from
+- Create a shell script, and add the following:
+
+```sh
+#!/usr/bin/env bash
+curl --user ${CIRCLE_TOKEN}: \
+    --request POST \
+    --form revision=<commit hash>\
+    --form config=@config.yml \
+    --form notify=false \
+        https://circleci.com/api/v1.1/project/github/kuzu-denton/remix/tree/master
+```
